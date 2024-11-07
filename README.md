@@ -22,7 +22,7 @@ This project is a Translator application built using Python with the Tkinter GUI
 1. **Clone the Repository**:
 
     ```bash
-    git clone <your-repository-url>
+    git clone <https://github.com/RahulGuptaMS/24CAP-606--Python-Project/>
     ```
 
 2. **Run the Application**:
@@ -47,6 +47,3 @@ This project is a Translator application built using Python with the Tkinter GUI
   - Uses `googletrans`'s `Translator` class to perform translations.
   - The `translate_now` function handles translation and updates the output text box with the translated text.
 
-## **License**
-
-This project is licensed under the MIT License. Feel free to modify and use it for your own purposes.
