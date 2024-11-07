@@ -1,94 +1,52 @@
-# **Hotel Management System**
+# **Translator Application**
 
-This project is a Hotel Management System application built using Python with the Tkinter GUI toolkit and MySQL database for data storage. It provides functionalities for hotel check-in, check-out, guest data display, and history management, making it useful for managing a small hotel.
+This project is a Translator application built using Python with the Tkinter GUI toolkit and the `googletrans` library for translation functionality. It provides a user-friendly interface for translating text between multiple languages, making it a handy tool for anyone needing quick translations.
 
 ## **Features**
 
-- **Room Availability Check**: View available rooms in the hotel.
-- **Guest Check-In**: Check in guests by entering their details and assigning an available room.
-- **Guest Check-Out**: Check out guests and update the database accordingly.
-- **Guest List**: Display all current guests who have checked in.
-- **Guest History**: View a record of all guests who have checked out.
-
-## **Database**
-
-The project uses MySQL as the database to store guest data. Follow these steps to set up the database.
-
-### **Database Setup**
-
-1. **Create the Database**: Run the following SQL command to create the database.
-
-    ```sql
-    CREATE DATABASE hotel;
-    USE hotel;
-    ```
-
-2. **Create Tables**: Define the tables required for the application.
-
-    - **guests**: Stores information about current guests.
-    - **checked_out_guests**: Stores information about guests who have checked out.
-    
-    ```sql
-    CREATE TABLE guests (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
-        phone VARCHAR(15),
-        gender VARCHAR(10),
-        email VARCHAR(100),
-        days INT,
-        room_number INT,
-        total_cost INT
-    );
-
-    CREATE TABLE checked_out_guests (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
-        phone VARCHAR(15),
-        gender VARCHAR(10),
-        email VARCHAR(100),
-        days INT,
-        room_number INT,
-        total_cost INT,
-        checkout_date DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-    ```
-
-3. **View Guest Data**: Use the following query to view all guests.
-
-    ```sql
-    SELECT * FROM guests;
-    ```
+- **Language Selection**: Choose source and target languages from a dropdown list of supported languages.
+- **Text Translation**: Enter text in the source language field and click "Translate" to get the translated text in the target language field.
+- **Custom Error Handling**: Displays custom error messages for any issues during translation.
 
 ## **Prerequisites**
 
 - Python 3.x
-- MySQL server
-- `pymysql` library for MySQL connectivity:
+- `googletrans` library for language translation:
   
     ```bash
-    pip install pymysql
+    pip install googletrans==4.0.0-rc1
     ```
 
 ## **Getting Started**
 
-1. **Clone the Repository**: [https://github.com/RahulGuptaMS/PL_SQL-project/](https://github.com/RahulGuptaMS/PL_SQL-project/)
-   
+1. **Clone the Repository**:
+
     ```bash
     git clone <your-repository-url>
     ```
 
-2. **Configure Database Connection**: Update the MySQL credentials in the script (username, password) to match your MySQL server setup.
-
-3. **Run the Application**: Run the script using Python.
+2. **Run the Application**:
 
     ```bash
-    python hotel_management.py
+    python translator.py
     ```
 
 ## **Usage**
 
-- **Fetch Available Room Data**: View which rooms are currently available.
-- **Check In a Guest**: Fill in guest details, including name, phone number, gender, email, and duration of stay. The system assigns a room and calculates the total cost.
-- **Check Out a Guest**: Select a guest to check out, freeing up the room for future use.
-- **Show All Guest List**: View a list of all currently checked-in guests.
-- **Show Guest History**: Display a history of all checked-out guests
+- **Select Languages**: Use the dropdown menus to select the source and target languages.
+- **Input Text**: Type or paste text in the left text box.
+- **Translate**: Click the "Translate" button to display the translated text in the right text box.
+
+## **Code Overview**
+
+- **GUI Elements**:
+  - The main GUI includes two dropdown menus for selecting languages, text boxes for input and output, and a "Translate" button for executing translations.
+  - Custom error messages are displayed using a pop-up box in case of any issues.
+
+- **Translation Logic**:
+  - Uses `googletrans`'s `Translator` class to perform translations.
+  - The `translate_now` function handles translation and updates the output text box with the translated text.
+
+## **License**
+
+This project is licensed under the MIT License. Feel free to modify and use it for your own purposes.
